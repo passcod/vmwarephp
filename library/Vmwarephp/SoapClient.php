@@ -3,6 +3,28 @@ namespace Vmwarephp;
 
 class SoapClient extends \SoapClient {
 
+	function __construct($a,$b)
+	{
+
+		if(!isset($b['stream_context']))
+		{
+
+			$b['stream_context'] = stream_context_create(array(
+			    'ssl' => array(
+			        'verify_peer' => false,	
+			        'allow_self_signed' => true
+			    )
+			));
+
+		}
+
+
+		parent::__construct($a, $b);
+
+		return $this;
+
+	}
+
 	function __doRequest($request, $location, $action, $version, $one_way = 0) {
 		$request = $this->appendXsiTypeForExtendedDatastructures($request);
 		$result = parent::__doRequest($request, $location, $action, $version, $one_way);

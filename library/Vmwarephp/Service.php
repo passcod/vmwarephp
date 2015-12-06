@@ -35,7 +35,12 @@ class Service {
 	}
 
 	function findManagedObjectByName($objectType, $name, $propertiesToCollect = array()) {
-		$propertiesToCollect = array_merge($propertiesToCollect, array('name'));
+		
+
+		if(is_array($propertiesToCollect))
+			$propertiesToCollect = array_merge($propertiesToCollect, array('name'));
+
+			
 		$allObjects = $this->findAllManagedObjects($objectType, $propertiesToCollect);
 		$objects = array_filter($allObjects, function ($object) use ($name) {
 			return $object->name == $name;

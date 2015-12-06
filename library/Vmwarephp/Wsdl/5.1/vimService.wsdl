@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-   Copyright 2005-2015 VMware, Inc.  All rights reserved.
+   Copyright 2005-2011 VMware, Inc.  All rights reserved.
 -->
 <definitions targetNamespace="urn:vim25Service"
    xmlns="http://schemas.xmlsoap.org/wsdl/"
@@ -10,7 +10,7 @@
    <import location="vim.wsdl" namespace="urn:vim25" />
    <service name="VimService">
       <port binding="interface:VimBinding" name="VimPort">
-         <soap:address location="https://vc.ci.ubergroup.co.nz/sdk/vimService" />
+         <soap:address location="https://localhost/sdk/vimService" />
       </port>
    </service>
 </definitions>

@@ -197,6 +197,11 @@ class ManagedObjectReference {
 		$this->_ = $_;
 		$this->type = $type;
 	}
+
+	function id()
+	{
+		return $this->_;
+	}
 }
 
 class ArrayOfString {
