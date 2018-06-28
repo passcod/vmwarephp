@@ -7,15 +7,17 @@ class SessionManager extends \Vmwarephp\ManagedObject {
 	private $session;
 
 	function acquireSession($userName, $password) {
-		if ($this->session) {
-			return $this->session;
-		}
-		try {
-			$this->session = $this->acquireSessionUsingCloneTicket();
-		} catch (\Exception $e) {
-			$this->session = $this->acquireANewSession($userName, $password);
-		}
-		return $this->session;
+		return $this->acquireANewSession($userName, $password);
+
+		//if ($this->session) {
+		//	return $this->session;
+		//}
+		//try {
+		//	$this->session = $this->acquireSessionUsingCloneTicket();
+		//} catch (\Exception $e) {
+		//	$this->session = $this->acquireANewSession($userName, $password);
+		//}
+		//return $this->session;
 	}
 
 	private function acquireSessionUsingCloneTicket() {
@@ -28,8 +30,8 @@ class SessionManager extends \Vmwarephp\ManagedObject {
 
 	private function acquireANewSession($userName, $password) {
 		$session = $this->Login(array('userName' => $userName, 'password' => $password, 'locale' => null));
-		$cloneTicket = $this->AcquireCloneTicket();
-		$this->saveCloneTicket($cloneTicket);
+		//$cloneTicket = $this->AcquireCloneTicket();
+		//$this->saveCloneTicket($cloneTicket);
 		return $session;
 	}
 
