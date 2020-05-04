@@ -18,7 +18,8 @@
 	"require-dev":{
 		"mockery/mockery":"dev-master"
 	},
-        "autoload": {
-            "psr-0": { "Vmwarephp": "library" }
-        }
+	"autoload": {
+		"psr-0": { "Vmwarephp": "library" },
+		"classmap": ["library/Vmwarephp/TypeDefinitions.inc"]
+	}
 }

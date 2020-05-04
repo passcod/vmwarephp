@@ -1,4 +1,7 @@
 <?php
+
+namespace Vmwarephp\Types;
+
 class DynamicArray {
 	public $dynamicType; //string
 	public $val; //anyType

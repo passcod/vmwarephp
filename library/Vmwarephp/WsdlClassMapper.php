@@ -36,7 +36,7 @@ class WsdlClassMapper {
 		foreach ($allTokens as $key => $token) {
 			if ($this->tokenRepresentsClassDefinition($token)) {
 				$className = $allTokens[$key + 2][1];
-				$classMap[$className] = $className;
+				$classMap[$className] = '\\Vmwarephp\\Types\\' . $className;
 			}
 		}
 		return array_merge($classMap, $this->getExtendedClasses());
